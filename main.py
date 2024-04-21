@@ -85,6 +85,16 @@ def insert_to_mysql(place_id, name, address, rating, phone):
         for x in mycursor:
                 print(x)
         mycursor.execute("CREATE DATABASE IF NOT EXISTS food")
+        mycursor.execute("CREATE TABLE IF NOT EXISTS places (\
+        id int NOT NULL AUTO_INCREMENT,\
+        place_id varchar(255),\
+        name varchar(255) NOT NULL,\
+        address varchar(255),\
+        rating float,\
+        PRIMARY KEY (id)\
+        ); \
+        ")
+
         if connection:
             cursor = connection.cursor()
             query = """INSERT INTO places (place_id, name, address, rating) 
