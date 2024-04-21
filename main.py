@@ -84,7 +84,7 @@ def insert_to_mysql(place_id, name, address, rating, phone):
         mycursor.execute("SHOW TABLES")
         for x in mycursor:
                 print(x)
-        mycursor.execute("CREATE DATABASE mydatabase")
+        mycursor.execute("CREATE DATABASE IF NOT EXISTS food")
         if connection:
             cursor = connection.cursor()
             query = """INSERT INTO places (place_id, name, address, rating) 
